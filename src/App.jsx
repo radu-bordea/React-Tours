@@ -39,9 +39,25 @@ const App = () => {
 
   // TODO
 
+  if (tours.length === 0) {
+    return (
+      <div className="title">
+        <h2>no tours left</h2>
+        <button
+          type="button"
+          style={{ marginTop: "2rem" }}
+          className="btn"
+          onClick={() => fetchTours()}
+        >
+          refresh
+        </button>
+      </div>
+    );
+  }
+
   return (
     <main>
-      <Tours tours={tours} removeTour={removeTour}/>
+      <Tours tours={tours} removeTour={removeTour} />
     </main>
   );
 };
