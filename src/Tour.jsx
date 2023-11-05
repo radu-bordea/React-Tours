@@ -9,7 +9,10 @@ const Tour = ({ id, image, info, name, price, removeTour }) => {
       <span className="tour-price">${price}</span>
       <div className="tour-info">
         <h5>{name}</h5>
-        <p>{info}</p>
+        <p>{readMode ? info : `${info.substring(0, 200)}...`}
+        <button type="button" className="info-btn" onClick={()=> setReadMore(!readMode)}>
+          {readMode ? 'show less' :'read more'}
+        </button></p>
         <button
           type="button"
           className="btn tbn-block delete-btn"
